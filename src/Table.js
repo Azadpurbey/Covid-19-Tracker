@@ -1,15 +1,17 @@
 import React from 'react'
+import numeral from "numeral";
 import './Table.css'
 function Table({countries}) {
     return (
         <div className='table'>
-            { countries.map(country=>(
-                <tr>
-                <td>{country.country}</td>
-                <td>
-                    <strong>{country.cases}</strong>
-                </td>
-            </tr>
+            { countries.map(({country,cases})=>(
+                <tr key={country}>
+                    
+                    <td key={country}>{country}</td>
+                    <td >
+                        <strong>{numeral(cases).format("0,0")}</strong>
+                    </td>
+                </tr>
 
 
             ))}
